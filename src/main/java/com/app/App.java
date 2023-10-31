@@ -11,24 +11,13 @@ import org.apache.http.util.EntityUtils;
 
 import com.app.api.Client;
 import com.app.api.Request;
+import com.app.composer.Composer;
 
 public class App {
-    public static void main(String[] args) throws ClientProtocolException, IOException {
-
-        HttpPost httpPost = new HttpPost(postUrl);
-
-        HttpPost post = Request.request();
-        HttpResponse httpResponse = Client.httpClient.execute(post);
+    public static void main(String[] args) throws ClientProtocolException, IOException, InterruptedException {
         System.out.println("Hello World!");
-
-        // MENGADAHI RESPONES
-        HttpEntity responseEntity = httpResponse.getEntity();
-        String response = EntityUtils.toString(responseEntity);
-
-        // Print the response
-        System.out.println(response);
-
-        final String api = "https://ngl.link/api/submit";
+        Composer composer = new Composer();
+        composer.composer();
     }
 
 }

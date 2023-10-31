@@ -8,11 +8,11 @@ import java.util.List;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class NameAssets {
-    public List<String> name() throws IOException {
+public class DeviceIdAssets {
+    public List<String> device() throws IOException {
 
-        List<String> questions = new ArrayList<>();
-        String path = "./json/question.java";
+        List<String> devices = new ArrayList<>();
+        String path = "src/main/java/com/app/json/UUID.json";
 
         ObjectMapper objectMapper = new ObjectMapper();
         File file = new File(path);
@@ -20,9 +20,9 @@ public class NameAssets {
         JsonNode json = objectMapper.readTree(file);
 
         for (JsonNode quest : json) {
-            questions.add(quest.asText());
+            devices.add(quest.asText().replace(" ", "+"));
         }
 
-        return questions;
+        return devices;
     }
 }
